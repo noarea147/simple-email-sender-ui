@@ -50,7 +50,7 @@ function InvoiceInfo() {
         emails: parsedData
       };
       let response = await axios({
-        url: "http://localhost:4000/send",
+        url: "https://sendmailsapp.herokuapp.com/send",
         method: "POST",
         data: payload
       });
