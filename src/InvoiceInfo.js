@@ -51,6 +51,10 @@ function InvoiceInfo() {
       };
       let response = await axios({
         url: "https://sendmailsapp.herokuapp.com/send",
+        header: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
         method: "POST",
         data: payload
       });
