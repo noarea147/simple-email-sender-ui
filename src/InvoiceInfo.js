@@ -45,19 +45,16 @@ function InvoiceInfo() {
           email: parsedData[i].email
         };
         let response = await axios({
-          url: "http://localhost:4000/send",
-          // header: {
-          //   "Access-Control-Allow-Origin": "*",
-          //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-          // },
+          url: "https://simple-email-sender.vercel.app/send",
+          headers: { "Access-Control-Allow-Origin": "*" },
           method: "POST",
           data: payload
         });
         if (response.status === 200) {
           alert(i + 1 + " email sent successfully");
-          console.log(i)
+          console.log(i);
         }
-        if (i+1  == parsedData.length || response.status !== 200) {
+        if (i + 1 == parsedData.length || response.status !== 200) {
           setIsSending(false);
         }
       }
